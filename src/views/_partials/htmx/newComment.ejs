@@ -1,0 +1,10 @@
+<section>
+    <fieldset>
+        <legend>
+            <a href="/profile/<%= locals.comment.expand.user_id.id %>"><%= locals.comment.expand.user_id.name %></a>
+            • <span><%= new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(locals.comment.price) %></span>
+        </legend>
+        <small title="<%= new Date(locals.comment.created) %>"><%= locals.relativeTime(locals.comment.created) %></small>
+        <p><i><%= locals.comment.message %></i></p>
+    </fieldset>
+</section>

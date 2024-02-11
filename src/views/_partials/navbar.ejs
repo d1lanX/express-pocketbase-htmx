@@ -1,0 +1,12 @@
+<header>
+    <nav hx-boost="true" style="display: flex; justify-content: space-between;align-items: center;">
+        <a href="/">inicio 🐪</a>
+        <% if (locals?.userData?.isLoggedIn) { %>
+            <a href="/profile/<%= locals.userData.id %>"><%= locals.userData.email %></a>
+            <form action="/logout" method="POST">
+                <button type="submit">salir</button>
+            </form>
+        <% } else { %>
+            <a href="/auth">iniciar sesion / registrarse</a>
+        <% } %>
+    </nav>

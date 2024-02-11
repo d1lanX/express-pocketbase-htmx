@@ -1,0 +1,48 @@
+<fieldset>
+    <legend>
+        <h2>nuevo post</h2>
+    </legend>
+    <form action="/post" method="post" enctype="multipart/form-data">
+        <label for="post_title">título</label>
+        <input type="text" name="post_title" id="post_title" placeholder="mi computador no enciende" minlength="30" maxlength="50" required>
+        
+        <label for="post_desc">descripción</label>
+        <textarea name="post_desc" id="post_desc" placeholder="estaba tomando cocacola y..." minlength="20" maxlength="300" required></textarea>
+        <label for="post_price">dispuesto a pagar</label>
+        <input type="number" name="post_price" id="post_price" min="0" required>
+        
+        <p>
+            <label>foto</label>
+            <section class="preview">
+                <label for="post_image">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
+                        <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                        <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1z"/>
+                    </svg>
+                </label>
+                <input type="file" onchange="previewImage(this)" name="post_image" id="post_image" style="display: none;">
+                <img id="image_preview" src  width="100" height="100" hidden>
+            </section>
+        </p>
+        <br>
+        <footer>
+            <button type="submit">publicar</button>
+            <button 
+                hx-post="/new-post?action=cancel"
+                hx-trigger="click"
+                hx-target="#create_post"
+                hx-swap="innerHTML"
+            >cancelar</button>
+        </footer>
+    </form>
+</fieldset>
+
+<script>
+    function previewImage(inputImage) {
+        if (inputImage.files[0]) {
+            const image = document.getElementById('image_preview');
+            image.hidden = false;
+            image.src = URL.createObjectURL(inputImage.files[0]);
+        }
+    }
+</script>

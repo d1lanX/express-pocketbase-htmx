@@ -1,0 +1,23 @@
+<%- include('../_partials/header.ejs') %>
+<%- include('../_partials/navbar.ejs') %>
+<main>
+    <form action="/login" method="post" hx-boost="true">
+        <h2>inicia sesion o registrate</h2>
+        <i>
+            <%= locals.serverResponse || '' %>
+        </i>
+        <p>
+            <label for="email">email</label><br>
+            <input type="email" name="email" id="email" value="<%= locals.email || '' %>" required>
+        </p>
+        <p>
+            <label for="password">password</label><br>
+            <input type="password" name="password" id="password" value="<%= locals.password || '' %>" required>
+        </p>
+        <p>
+            <button type="submit">iniciar sesion</button>
+            <button formaction="/signup">registrarme</button>
+        </p>
+    </form>
+</main>
+<%- include('../_partials/footer.ejs') %>

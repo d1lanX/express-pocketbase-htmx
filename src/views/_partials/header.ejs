@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= locals.title || 'inicio' %></title>
+    <script src="/libraries/htmx.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+    <style>
+      li {list-style-type: none;}a:hover {text-decoration: wavy;}.content-container {display: flex;flex-direction: column;}.content-container img {width: 100%;height: auto;}@media (min-width: 600px) {.content-container {flex-direction: row;}.content-container img {flex: 0 0 auto;width: 200px;height: 200px;}.content-container aside {flex: 1 1 auto;padding-left: 10px;}}.title-new-post{display: flex;align-items: center;justify-content: space-between;background-color: #efefef;;color: black;font-weight: bold;padding: 10px;border-radius: 3px;margin: 2% 0;}label{font-weight: bolder;}label[for="post_image"]{display: flex;align-items: center;justify-content:center;width: 100px;height: 100px;cursor: pointer;}label[for="post_image"]:hover{opacity: 40%;}section.preview{display: flex;gap: 5%;}img{object-fit: cover;}label[for="profile_picture"]:hover{ opacity: 60%;}.ad{margin-top: 5%;}
+    </style>
+  </head>
+  <body>

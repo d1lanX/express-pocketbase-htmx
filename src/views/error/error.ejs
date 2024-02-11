@@ -1,0 +1,26 @@
+<main>
+    <% if (locals.error === 400) { %>
+        <h1>Algo hiciste...</h1>
+        <img src="/images/400.gif" alt="bad request" width="250" height="250" style="object-fit: contain;">
+    <% } %>
+
+    <% if (locals.error === 401) { %>
+        <h1>hmm hmm no</h1>
+        <img src="/images/401.gif" alt="unauthorized" width="250" height="250" style="object-fit: contain;">
+    <% } %>
+    
+    <% if (locals.error === 404) { %>
+        <h1>no encontrado</h1>
+        <img src="/images/404.gif" alt="not found" width="250" height="250" style="object-fit: contain;">
+    <% } %>
+
+    <% if (locals.error === 500) { %>
+        <h1>error, error, error!!!</h1>
+        <img src="/images/500.gif" alt="not found" width="250" height="250" style="object-fit: contain;">
+    <% } %>
+    <br>
+    <br>
+    <a href="/">volver al inicio</a>
+    <br>
+    <br>
+</main>

@@ -1,0 +1,41 @@
+<form 
+    hx-put="/profile/edit/<%= locals.userRecord.id %>" 
+    hx-encoding="multipart/form-data"
+    hx-target="closest article">
+    <fieldset>
+        <legend>editar perfil</legend>
+        <aside>
+            <label for="profile_picture">
+                <% let urlProfilePic = `https://ui-avatars.com/api/?name=${locals.userRecord.name}&size=128` %>
+                <img 
+                    src="<%= `${locals.baseUrl}/users/${locals.userRecord.id}/${locals.userRecord.avatar}` || urlProfilePic %>" 
+                    width="200" 
+                    height="200" 
+                    style="object-fit: contain;" 
+                    loading="lazy" 
+                    id="profile_picture_preview"
+                >
+                <input type="file" style="display: none;" onchange="previewImage(this)" id="profile_picture" name="profile_picture">
+            </label>
+        </aside>
+        <section>
+            <input type="hidden" name="uid" value="<%= locals.userRecord.id %>">
+
+            <label for="name">nombre</label>
+            <input type="text" name="name" id="name" value="<%= locals.userRecord.name || '' %>">
+            
+            <label for="email">ubicación</label>
+            <input type="text" name="location" id="location" value="<%= locals.userRecord.location || '' %>">
+        </section>
+        <button type="submit">guardar</button>
+        <button hx-get="/profile/edit?uid=<%= locals.userRecord.id %>&action=cancel" hx-target="closest article">cancelar</button>
+    </fieldset>
+</form>
+<script>
+    function previewImage(inputFile) {
+        if (inputFile.files[0]) {
+            const image = document.getElementById('profile_picture_preview');
+            image.src = URL.createObjectURL(inputFile.files[0]);
+        }
+    }
+</script>
